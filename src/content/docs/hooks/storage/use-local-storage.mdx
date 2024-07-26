@@ -1,0 +1,76 @@
+---
+title: useLocalStorage
+description: Hook to persist state in the browser's local storage
+---
+
+import {
+  LinkCard,
+  CardGrid,
+  Code,
+  Tabs,
+  TabItem,
+} from "@astrojs/starlight/components";
+
+import useLocalStorageTS from "/src/hooks/storage/use-local-storage/use-local-storage.tsx?raw";
+import useLocalStorageJS from "/src/hooks/storage/use-local-storage/use-local-storage.jsx?raw";
+
+Store, retrieve, and synchronize data from the browser’s localStorage API with useLocalStorage
+
+<CardGrid>
+  <LinkCard
+    title="API reference"
+    href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
+    target="_blank"
+    rel="noopener noreferrer"
+  />
+</CardGrid>
+
+## Installation
+
+<Tabs>
+  <TabItem label="Manual" icon="setting">
+    Copy and paste the following code into your project.
+    <Tabs>
+      <TabItem label="JavaScript" icon="seti:javascript">
+        <Code
+          code={useLocalStorageJS}
+          lang="jsx"
+          title="use-local-storage.jsx"
+        />
+      </TabItem>
+      <TabItem label="TypeScript" icon="seti:typescript">
+        <Code
+          code={useLocalStorageTS}
+          lang="tsx"
+          title="use-local-storage.tsx"
+        />
+      </TabItem>
+    </Tabs>
+  </TabItem>
+</Tabs>
+
+## Usage
+
+```jsx
+import { useLocalStorage } from "@/hooks/use-local-storage";
+```
+
+```jsx
+const [text, setText] = useLocalStorage("text", "");
+```
+
+## API
+
+### Parameters
+
+| Name | Type   | Description                                                                                                   |
+| ---- | ------ | ------------------------------------------------------------------------------------------------------------- |
+| key  | string | The key to store the value under. It should be unique to avoid collisions with other libraries or components. |
+| def  | any    | The default value to use if nothing is stored in localStorage.                                                |
+
+### Return value
+
+| Name     | Type                 | Description                                                                                               |
+| -------- | -------------------- | --------------------------------------------------------------------------------------------------------- |
+| value    | any                  | The value stored in local storage. If nothing is stored, the initial value is returned.                   |
+| setValue | (value: any) => void | A function to set the value in local storage. This function will also persist the value to local storage. |
