@@ -9,6 +9,11 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Custom Hooks",
+      logo: {
+        light: "./src/assets/logo.svg",
+        dark: "./src/assets/logo.svg",
+        replacesTitle: true,
+      },
       social: {
         github: "https://github.com/developaul/custom-hooks",
       },

@@ -6,3 +6,19 @@
 Add additional Tailwind styles to this file, for example with @layer:
 https://tailwindcss.com/docs/adding-custom-styles#using-css-and-layer
 */
+
+.hero {
+  grid-template-columns: 1fr;
+}
+
+.hero .copy {
+  @apply items-center;
+}
+
+.hero .actions {
+  @apply justify-center;
+}
+
+.site-title > img {
+  @apply h-12 w-auto;
+}
